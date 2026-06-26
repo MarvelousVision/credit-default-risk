@@ -24,4 +24,3 @@ revol_util,
 total_acc
 FROM loans_raw
 WHERE loan_status IN ('Default', 'Charged Off', 'Fully Paid');
-
