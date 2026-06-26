@@ -1,0 +1,27 @@
+CREATE TABLE loans_modeling_v1 AS
+SELECT loan_status,
+CASE WHEN loan_status IN ('Default', 'Charged Off') THEN 1 ELSE 0 END AS target,
+loan_amnt,
+term,
+int_rate,
+installment,
+grade,
+sub_grade,
+emp_length,
+home_ownership,
+annual_inc,
+verification_status,
+issue_d,
+purpose,
+dti,
+delinq_2yrs,
+earliest_cr_line,
+inq_last_6mths,
+open_acc,
+pub_rec,
+revol_bal,
+revol_util,
+total_acc
+FROM loans_raw
+WHERE loan_status IN ('Default', 'Charged Off', 'Fully Paid');
+
