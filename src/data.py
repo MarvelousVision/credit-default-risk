@@ -5,16 +5,19 @@ from sqlalchemy import create_engine
 
 load_dotenv()
 
-
 def get_engine():
     database_url = os.getenv('DATABASE_URL')
     if not database_url:
         raise ValueError("DATABASE_URL not set in environment. Please check your .env file.")
     engine = create_engine(database_url)
     return engine
-def load_modeling_data():
+
+def load_modeling_data(table_name: str):
+    allowed_tables = {"loans_modeling_v1"}
+    if table_name not in allowed_tables:
+        raise ValueError(f"Unsupported table: {table_name}")
     engine= get_engine()
-    query = """
+    query = f"""
     SELECT
         target,
         loan_status,
@@ -34,7 +37,7 @@ def load_modeling_data():
         revol_util,
         total_acc,
         issue_d
-    FROM loans_modeling_v1;
+    FROM {table_name};
     """
     df = pd.read_sql(query, engine)
     return df 

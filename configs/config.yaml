@@ -1,0 +1,28 @@
+data:
+  table_name: loans_modeling_v1
+  target_column: target
+
+split:
+  validation_start: "2016-03-01"
+  test_start: "2017-01-01"
+
+model:
+  type: lightgbm
+  params:
+    random_state: 42
+    verbosity: -1
+
+decision:
+  threshold: 0.2574331564883078
+  review_capacity: 0.20
+  positive_action: manual_review
+  negative_action: approve
+
+business:
+  review_cost: 100
+  default_loss_rate: 0.60
+  review_effectiveness: 1.0
+
+artifacts:
+  model_path: artifacts/credit_risk_pipeline.joblib
+  model_info_path: artifacts/model_info.json
