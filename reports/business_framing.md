@@ -49,3 +49,11 @@ Validation: Use time-based split if issue date is available and suitable for the
 What is the profile of defaulters vs. good payers (income, debt-to-income ratio, credit history)?
 How does default rate vary with loan characteristics (amount, term, rate, grade, purpose)?
 How do credit history indicators (delinquencies, inquiries, open lines) correlate with default?
+
+False Negative: default borrower predicted as safe. This is the most expensive error because the bank approves a risky loan.
+
+False Positive: fully paid borrower predicted as risky. This is less expensive because the bank may reject a good borrower or send them to manual review.
+
+Because exact profit/loss values are not available, I will use assumptions:
+FN cost = 60% of loan amount
+FP cost = 5% of loan amount
