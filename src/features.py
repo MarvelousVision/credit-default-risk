@@ -37,7 +37,7 @@ def create_features(dff):
     'vacation',
     'car'
     ]
-    df['purpose']=df['purpose'].replace(dict.fromkeys(rare_p, 'OTHER'))
+    df['purpose']=df['purpose'].replace(dict.fromkeys(rare_p, 'rare_purposes'))
 
     df['dti']= np.where(df['dti']<0, np.nan, df['dti'])
 
