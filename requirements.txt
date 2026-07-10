@@ -3,3 +3,7 @@ sqlalchemy
 psycopg2-binary
 python-dotenv
 PyYAML
+fastapi
+uvicorn
+pytest
+httpx
