@@ -501,6 +501,20 @@ Expected result:
 
 ---
 
+## Final Model Summary
+
+| Item | Value |
+|---|---|
+| Model | LightGBM |
+| Split | Time-based |
+| Validation ROC-AUC | 0.6809 |
+| Test ROC-AUC | 0.6856 |
+| Test PR-AUC | 0.3498 |
+| Review capacity | Top 20% riskiest applications |
+| Deployment | FastAPI + Docker |
+
+---
+
 ## Limitations
 
 Current limitations:
